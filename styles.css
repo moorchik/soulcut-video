@@ -947,6 +947,14 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  .nav {
+    padding: 10px 20px;
+  }
+
+  .nav-logo img {
+    height: 55px;
+  }
+
   .nav-links {
     position: fixed;
     top: 0;
