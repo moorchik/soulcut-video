@@ -170,6 +170,19 @@
     });
   });
 
+  // ----- Portfolio: View all / Show less -----
+  var portfolioGrid = document.querySelector('.portfolio-grid');
+  var portfolioMore = document.getElementById('portfolioMore');
+  var viewAllBtn = document.getElementById('portfolioViewAllBtn');
+  var viewAllWrap = document.getElementById('portfolioViewAllWrap');
+
+  if (portfolioGrid && portfolioMore && viewAllBtn) {
+    viewAllBtn.addEventListener('click', function () {
+      var isExpanded = portfolioGrid.classList.toggle('portfolio-grid--expanded');
+      viewAllBtn.textContent = isExpanded ? 'Show less' : 'View all';
+    });
+  }
+
   // ----- Contact form: submit via fetch, show success on site -----
   var form = document.getElementById('contactForm');
   var formSuccess = document.getElementById('formSuccess');
