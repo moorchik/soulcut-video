@@ -609,12 +609,22 @@ a:hover {
   line-height: 1;
 }
 
+.service-icon--folder {
+  color: var(--accent);
+}
+
+.service-icon--folder svg {
+  display: block;
+}
+
 .service-card h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.35rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 0 10px;
   color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .service-card p {
