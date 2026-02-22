@@ -130,7 +130,7 @@
       var name = form.querySelector('#name').value;
       var email = form.querySelector('#email').value;
       var message = form.querySelector('#message').value;
-      var mailto = 'mailto:hello@soulcutvideo.com?subject=Quote request from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent(message + '\n\n---\nReply to: ' + email);
+      var mailto = 'mailto:hello@soulcut.video?subject=Quote request from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent(message + '\n\n---\nReply to: ' + email);
       window.location.href = mailto;
     });
   }
