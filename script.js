@@ -48,26 +48,75 @@
 
   // ----- Video modal -----
   var modal = document.getElementById('videoModal');
+  var modalPlayer = modal && modal.querySelector('.video-modal-player');
   var modalVideo = modal && modal.querySelector('.video-modal-player video');
+  var modalIframe = modal && modal.querySelector('.video-modal-iframe');
   var modalBackdrop = modal && modal.querySelector('.video-modal-backdrop');
   var modalClose = modal && modal.querySelector('.video-modal-close');
 
+  function isDropboxUrl(src) {
+    return src && src.indexOf('dropbox.com') !== -1;
+  }
+
+  function getGoogleDriveEmbedUrl(src) {
+    if (!src || src.indexOf('drive.google.com') === -1) return null;
+    var match = src.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    return match ? 'https://drive.google.com/file/d/' + match[1] + '/preview' : null;
+  }
+
   function openModal(src) {
-    if (!modal || !modalVideo) return;
-    modalVideo.src = src;
-    modalVideo.currentTime = 0;
+    if (!modal || !modalPlayer) return;
+    var driveEmbed = getGoogleDriveEmbedUrl(src);
+    if (driveEmbed) {
+      if (modalVideo) {
+        modalVideo.style.display = 'none';
+        modalVideo.removeAttribute('src');
+      }
+      if (modalIframe) {
+        modalIframe.src = driveEmbed;
+        modalIframe.style.display = 'block';
+      }
+    } else if (isDropboxUrl(src)) {
+      if (modalVideo) {
+        modalVideo.style.display = 'none';
+        modalVideo.removeAttribute('src');
+      }
+      if (modalIframe) {
+        var viewUrl = src.replace('?dl=1', '').replace('?dl=0', '') || src;
+        if (viewUrl.indexOf('?') === -1) viewUrl += '?dl=0';
+        modalIframe.src = viewUrl;
+        modalIframe.style.display = 'block';
+      }
+    } else {
+      if (modalIframe) {
+        modalIframe.style.display = 'none';
+        modalIframe.removeAttribute('src');
+      }
+      if (modalVideo) {
+        modalVideo.style.display = 'block';
+        modalVideo.src = src;
+        modalVideo.currentTime = 0;
+        modalVideo.play().catch(function () {});
+      }
+    }
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    modalVideo.play().catch(function () {});
   }
 
   function closeModal() {
-    if (!modal || !modalVideo) return;
+    if (!modal) return;
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
-    modalVideo.pause();
-    modalVideo.removeAttribute('src');
+    if (modalVideo) {
+      modalVideo.pause();
+      modalVideo.removeAttribute('src');
+      modalVideo.style.display = 'block';
+    }
+    if (modalIframe) {
+      modalIframe.removeAttribute('src');
+      modalIframe.style.display = 'none';
+    }
     document.body.style.overflow = '';
   }
 
@@ -83,9 +132,9 @@
     var src = thumb.getAttribute('data-video-src');
     if (!src) return;
 
-    // Hover preview: optional inline video (add .portfolio-thumb-video in HTML to enable)
+    // Hover preview: only for direct video URLs (not Drive/Dropbox)
     var hoverVideo = thumb.querySelector('.portfolio-thumb-video');
-    if (hoverVideo) {
+    if (hoverVideo && !getGoogleDriveEmbedUrl(src) && !isDropboxUrl(src)) {
       hoverVideo.src = src;
       thumb.addEventListener('mouseenter', function () {
         hoverVideo.style.opacity = '1';
