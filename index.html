@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soulcut Video — Cinematic Wedding Film Editing</title>
+  <meta name="description" content="Professional wedding video editing for filmmakers worldwide. We turn wedding footage into cinematic stories.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <!-- HERO -->
+    <header class="hero" id="hero">
+      <div class="hero-video-wrap">
+        <video class="hero-video" autoplay muted loop playsinline poster="https://images.pexels.com/videos/3571264/pexels-photo-3571264.jpeg?auto=compress&cs=tinysrgb&w=1920">
+          <!-- Replace src with your wedding footage. Example placeholder: -->
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-couple-getting-married-on-the-beach-41365-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+      <nav class="nav">
+        <a href="#hero" class="nav-logo">Soulcut</a>
+        <button class="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hero-content">
+        <h1 class="hero-title">We turn wedding footage into cinematic stories</h1>
+        <p class="hero-sub">Professional wedding video editing for filmmakers worldwide</p>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+          <a href="#contact" class="btn btn-outline">Get a Quote</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- PORTFOLIO -->
+    <section class="section portfolio" id="portfolio">
+      <div class="container">
+        <h2 class="section-title">Portfolio</h2>
+        <p class="section-sub">A glimpse of our work across different formats</p>
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-category="all">All</button>
+          <button class="filter-btn" data-category="highlights">Highlights</button>
+          <button class="filter-btn" data-category="full-films">Full Wedding Films</button>
+          <button class="filter-btn" data-category="ceremony">Ceremony Edits</button>
+          <button class="filter-btn" data-category="reception">Reception Edits</button>
+          <button class="filter-btn" data-category="teasers">Social Media Teasers</button>
+        </div>
+        <div class="portfolio-grid">
+          <!-- Replace data-video-src and thumbnail with your assets -->
+          <article class="portfolio-item" data-category="highlights">
+            <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-wedding-ceremony-41364-large.mp4">
+              <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
+              <img src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding highlight">
+              <div class="portfolio-hover">
+                <span class="play-icon"></span>
+                <span>Watch</span>
+              </div>
+            </div>
+            <h3>Highlight Reel</h3>
+          </article>
+          <article class="portfolio-item" data-category="full-films">
+            <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-couple-getting-married-on-the-beach-41365-large.mp4">
+              <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
+              <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Full wedding film">
+              <div class="portfolio-hover">
+                <span class="play-icon"></span>
+                <span>Watch</span>
+              </div>
+            </div>
+            <h3>Full Wedding Film</h3>
+          </article>
+          <article class="portfolio-item" data-category="ceremony">
+            <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-wedding-ceremony-41364-large.mp4">
+              <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
+              <img src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremony edit">
+              <div class="portfolio-hover">
+                <span class="play-icon"></span>
+                <span>Watch</span>
+              </div>
+            </div>
+            <h3>Ceremony Edit</h3>
+          </article>
+          <article class="portfolio-item" data-category="reception">
+            <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-couple-getting-married-on-the-beach-41365-large.mp4">
+              <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
+              <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Reception edit">
+              <div class="portfolio-hover">
+                <span class="play-icon"></span>
+                <span>Watch</span>
+              </div>
+            </div>
+            <h3>Reception Edit</h3>
+          </article>
+          <article class="portfolio-item" data-category="teasers">
+            <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-wedding-ceremony-41364-large.mp4">
+              <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
+              <img src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Social teaser">
+              <div class="portfolio-hover">
+                <span class="play-icon"></span>
+                <span>Watch</span>
+              </div>
+            </div>
+            <h3>Social Teaser</h3>
+          </article>
+          <article class="portfolio-item" data-category="highlights">
+            <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-couple-getting-married-on-the-beach-41365-large.mp4">
+              <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
+              <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Highlight">
+              <div class="portfolio-hover">
+                <span class="play-icon"></span>
+                <span>Watch</span>
+              </div>
+            </div>
+            <h3>Beach Wedding</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO MODAL -->
+    <div class="video-modal" id="videoModal" aria-hidden="true">
+      <div class="video-modal-backdrop"></div>
+      <div class="video-modal-inner">
+        <button class="video-modal-close" aria-label="Close">&times;</button>
+        <div class="video-modal-player">
+          <video controls playsinline></video>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <div class="container">
+        <h2 class="section-title">Services</h2>
+        <p class="section-sub">From raw footage to polished films</p>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon"><span>🎬</span></div>
+            <h3>Wedding Highlight Editing</h3>
+            <p>Short, emotional highlight reels that capture the best moments of the day.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><span>📽️</span></div>
+            <h3>Full Film Editing</h3>
+            <p>Complete wedding films with narrative structure and cinematic pacing.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><span>🎥</span></div>
+            <h3>Multi-Camera Ceremony</h3>
+            <p>Seamless multi-cam ceremony edits with professional cuts and sync.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><span>🔊</span></div>
+            <h3>Audio Cleanup & Mixing</h3>
+            <p>Dialogue clarity, music licensing, and balanced audio mix.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><span>🎨</span></div>
+            <h3>Color Grading</h3>
+            <p>Rec.709, custom LUTs, and a consistent cinematic look.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon"><span>⚡</span></div>
+            <h3>Fast Turnaround</h3>
+            <p>Reliable delivery timelines so you can deliver to clients on schedule.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="about-bg"></div>
+      <div class="container about-inner">
+        <div class="about-content">
+          <h2 class="section-title">About</h2>
+          <p class="about-lead">We're a team of professional editors who work with filmmakers and studios around the world.</p>
+          <p>Our focus is <strong>storytelling</strong>—every cut, every transition, every moment is chosen to amplify emotion and narrative. We believe wedding films should feel like cinema: clean, intentional, and timeless.</p>
+          <p>Whether you shoot one camera or ten, we take your raw footage and return a film that your clients will treasure. Fast turnaround, consistent quality, and a collaborative process so the final edit always matches your vision.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-sub">Tell us about your project. We'll reply within 24 hours.</p>
+        <div class="contact-wrap">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Tell us about your wedding film, timeline, and any special requests..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          </form>
+          <div class="contact-info">
+            <p class="contact-email">
+              <strong>Email</strong><br>
+              <a href="mailto:hello@soulcutvideo.com">hello@soulcutvideo.com</a>
+            </p>
+            <p class="contact-links">
+              <strong>Quick links</strong><br>
+              <a href="https://wa.me/1234567890" target="_blank" rel="noopener">WhatsApp</a> ·
+              <a href="https://t.me/soulcutvideo" target="_blank" rel="noopener">Telegram</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Soulcut Video. Cinematic wedding film editing.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
