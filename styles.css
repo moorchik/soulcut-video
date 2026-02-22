@@ -125,6 +125,10 @@ a:hover {
   color: var(--text);
 }
 
+.nav-close-item {
+  display: none;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
