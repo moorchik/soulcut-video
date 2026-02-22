@@ -170,21 +170,53 @@
     });
   });
 
-  // ----- Contact form: Formspree redirect + thank you message -----
+  // ----- Contact form: submit via fetch, show success on site -----
   var form = document.getElementById('contactForm');
-  if (form && form.action && form.action.indexOf('YOUR_FORM_ID') === -1) {
-    var nextUrl = window.location.origin + window.location.pathname + '#contact?thanks=1';
-    var nextInput = document.createElement('input');
-    nextInput.type = 'hidden';
-    nextInput.name = '_next';
-    nextInput.value = nextUrl;
-    form.appendChild(nextInput);
-  }
-  if (window.location.hash === '#contact' && window.location.search.indexOf('thanks=1') !== -1) {
-    var thanksEl = document.getElementById('formThanks');
-    if (thanksEl) {
-      thanksEl.removeAttribute('hidden');
-      thanksEl.style.color = 'var(--accent)';
-    }
+  var formSuccess = document.getElementById('formSuccess');
+  var submitBtn = form && form.querySelector('button[type="submit"]');
+
+  if (form && formSuccess) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var action = form.getAttribute('action');
+      if (!action || action.indexOf('formspree') === -1) return;
+
+      var origText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      var body = new FormData(form);
+
+      fetch(action, {
+        method: 'POST',
+        body: body,
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (res) {
+          if (res.ok) {
+            form.reset();
+            form.style.display = 'none';
+            formSuccess.removeAttribute('hidden');
+            formSuccess.classList.add('form-success--visible');
+          } else {
+            throw new Error('Send failed');
+          }
+        })
+        .catch(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = origText;
+          }
+          alert('Something went wrong. Please try again or email hello@soulcut.video');
+        })
+        .then(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = origText;
+          }
+        });
+    });
   }
 })();

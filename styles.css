@@ -381,7 +381,7 @@ a:hover {
 
 .portfolio-thumb {
   position: relative;
-  aspect-ratio: 2500 / 1000; /* 2.5:1 — форма банеру */
+  aspect-ratio: 2500 / 1000; /* 2.5:1 banner */
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 16px;
@@ -670,10 +670,83 @@ a:hover {
   background: var(--bg);
 }
 
-.form-thanks {
-  margin: -24px 0 24px;
-  font-size: 1.1rem;
+.form-success {
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+.form-success[hidden] {
+  display: none;
+}
+
+.form-success.form-success--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.form-success-inner {
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--bg-card);
+  border: 1px solid rgba(201, 169, 98, 0.3);
+  border-radius: var(--radius);
+  box-shadow: 0 0 40px var(--accent-dim);
+}
+
+.form-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: rgba(201, 169, 98, 0.2);
   color: var(--accent);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  animation: formSuccessPop 0.5s var(--ease-out) 0.2s both;
+}
+
+.form-success-text {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text);
+  animation: formSuccessFade 0.5s var(--ease-out) 0.3s both;
+}
+
+.form-success-sub {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+  animation: formSuccessFade 0.5s var(--ease-out) 0.4s both;
+}
+
+@keyframes formSuccessPop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes formSuccessFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .contact-wrap {
