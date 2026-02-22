@@ -13,7 +13,7 @@
   --accent-dim: rgba(201, 169, 98, 0.15);
   --glow: rgba(201, 169, 98, 0.25);
   --border: rgba(255, 255, 255, 0.06);
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Inter", -apple-system, sans-serif;
   --font-body: "Inter", -apple-system, sans-serif;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -190,13 +190,13 @@ a:hover {
 }
 
 .hero-title {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 600;
-  line-height: 1.15;
+  font-weight: 700;
+  line-height: 1.1;
   margin: 0 0 20px;
   color: var(--text);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   opacity: 0;
   transform: translateY(24px);
@@ -312,12 +312,13 @@ a:hover {
 }
 
 .section-title {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 0 12px;
   color: var(--text);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .section-sub {
@@ -485,11 +486,12 @@ a:hover {
 }
 
 .portfolio-item h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
   color: var(--text);
+  letter-spacing: 0.02em;
 }
 
 /* ----- Video Modal ----- */
@@ -680,8 +682,11 @@ a:hover {
   background: var(--bg);
 }
 
+.contact-form-col {
+  min-height: 200px;
+}
+
 .form-success {
-  margin-bottom: 32px;
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
@@ -723,10 +728,11 @@ a:hover {
 
 .form-success-text {
   margin: 0 0 8px;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
+  letter-spacing: 0.02em;
   animation: formSuccessFade 0.5s var(--ease-out) 0.3s both;
 }
 
@@ -765,6 +771,10 @@ a:hover {
   gap: 48px;
   align-items: start;
   max-width: 900px;
+}
+
+.contact-wrap .contact-form-col .form-success {
+  margin-bottom: 0;
 }
 
 .contact-form {
