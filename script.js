@@ -170,17 +170,21 @@
     });
   });
 
-  // ----- Contact form: basic submit handling -----
+  // ----- Contact form: Formspree redirect + thank you message -----
   var form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      // Replace with your form backend or mailto
-      var name = form.querySelector('#name').value;
-      var email = form.querySelector('#email').value;
-      var message = form.querySelector('#message').value;
-      var mailto = 'mailto:hello@soulcut.video?subject=Quote request from ' + encodeURIComponent(name) + '&body=' + encodeURIComponent(message + '\n\n---\nReply to: ' + email);
-      window.location.href = mailto;
-    });
+  if (form && form.action && form.action.indexOf('YOUR_FORM_ID') === -1) {
+    var nextUrl = window.location.origin + window.location.pathname + '#contact?thanks=1';
+    var nextInput = document.createElement('input');
+    nextInput.type = 'hidden';
+    nextInput.name = '_next';
+    nextInput.value = nextUrl;
+    form.appendChild(nextInput);
+  }
+  if (window.location.hash === '#contact' && window.location.search.indexOf('thanks=1') !== -1) {
+    var thanksEl = document.getElementById('formThanks');
+    if (thanksEl) {
+      thanksEl.removeAttribute('hidden');
+      thanksEl.style.color = 'var(--accent)';
+    }
   }
 })();

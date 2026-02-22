@@ -14,6 +14,8 @@
   <div class="page-wrap">
     <!-- HERO -->
     <header class="hero" id="hero">
+      <!-- Власне фото на фон: покладіть файл images/hero-bg.jpg (рекомендовано 1920×1080). Щоб лишити тільки картинку без відео — додайте клас hero--image-only до header. -->
+      <div class="hero-bg-image" role="presentation"></div>
       <div class="hero-video-wrap">
         <video class="hero-video" autoplay muted loop playsinline poster="https://images.pexels.com/videos/3571264/pexels-photo-3571264.jpeg?auto=compress&cs=tinysrgb&w=1920">
           <!-- Replace src with your wedding footage. Example placeholder: -->
@@ -22,7 +24,9 @@
         <div class="hero-overlay"></div>
       </div>
       <nav class="nav">
-        <a href="#hero" class="nav-logo">Soulcut</a>
+        <a href="#hero" class="nav-logo">
+          <img src="images/logo.svg" alt="Soulcut">
+        </a>
         <button class="nav-toggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -61,39 +65,50 @@
           <button class="filter-btn" data-category="teasers">Social Media Teasers</button>
         </div>
         <div class="portfolio-grid">
-          <!-- Google Drive: вставте повне посилання на відео (ПКМ по файлу → Надіслати → Скопіювати посилання). Доступ: «Усі, хто має посилання». -->
+          <!-- Перший highlight: банер Geoff & Lauren (фото в images/geoff-lauren.png, пропорції 2500×1000) -->
           <article class="portfolio-item" data-category="highlights">
-            <div class="portfolio-thumb" data-video-src="https://drive.google.com/file/d/15PKBTI2aebHAQAIg3yvCxZzuj6WEPm1j/view?usp=sharing">
+            <div class="portfolio-thumb" data-video-src="https://drive.google.com/file/d/13GB67Tp0KiJzBZZAiaZ2nqH0YO3bQHIp/view?usp=sharing">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding highlight">
+              <img src="images/geoff-lauren.png" alt="Geoff & Lauren — wedding highlight">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
               </div>
             </div>
-            <h3>Highlight Reel</h3>
+            <h3>Geoff & Lauren — Highlight</h3>
           </article>
-          <article class="portfolio-item" data-category="full-films">
-            <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-couple-getting-married-on-the-beach-41365-large.mp4">
+          <article class="portfolio-item" data-category="highlights">
+            <div class="portfolio-thumb" data-video-src="https://drive.google.com/file/d/1EdnTbY3fhzPwjUNXWImo-atitNehXLEn/view?usp=drive_link">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Full wedding film">
+              <img src="images/paige-mike.png" alt="Paige & Mike — wedding highlight">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
               </div>
             </div>
-            <h3>Full Wedding Film</h3>
+            <h3>Paige & Mike — Highlight</h3>
           </article>
-          <article class="portfolio-item" data-category="ceremony">
-            <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-wedding-ceremony-41364-large.mp4">
+          <article class="portfolio-item" data-category="highlights">
+            <div class="portfolio-thumb" data-video-src="https://drive.google.com/file/d/1sqq61Bxm7G3GFhzSi5GOmZIiDG4wSADL/view?usp=sharing">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremony edit">
+              <img src="images/carlee-jevan.png" alt="Carlee & Jevan — wedding highlight">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
               </div>
             </div>
-            <h3>Ceremony Edit</h3>
+            <h3>Carlee & Jevan — Highlight</h3>
+          </article>
+          <article class="portfolio-item" data-category="highlights">
+            <div class="portfolio-thumb" data-video-src="https://drive.google.com/file/d/1ePK_1S37dD04lT5c8keeN4l85c7M2VHf/view?usp=sharing">
+              <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
+              <img src="images/kiera-sascha.png" alt="Kiera and Sascha — wedding highlight">
+              <div class="portfolio-hover">
+                <span class="play-icon"></span>
+                <span>Watch</span>
+              </div>
+            </div>
+            <h3>Kiera and Sascha — Highlight</h3>
           </article>
           <article class="portfolio-item" data-category="reception">
             <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-couple-getting-married-on-the-beach-41365-large.mp4">
@@ -202,15 +217,18 @@
       <div class="container">
         <h2 class="section-title">Get in Touch</h2>
         <p class="section-sub">Tell us about your project. We'll reply within 24 hours.</p>
+        <p class="form-thanks" id="formThanks" hidden>Thanks! We'll get back to you soon.</p>
         <div class="contact-wrap">
-          <form class="contact-form" id="contactForm">
+          <!-- Formspree → листи на hello@soulcut.video -->
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdalwqzw" method="POST">
+            <input type="hidden" name="_subject" value="Soulcut: нове повідомлення з сайту">
             <div class="form-row">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" required placeholder="Your name">
             </div>
             <div class="form-row">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" required placeholder="your@email.com">
+              <input type="email" id="email" name="_replyto" required placeholder="your@email.com">
             </div>
             <div class="form-row">
               <label for="message">Message</label>
@@ -220,13 +238,12 @@
           </form>
           <div class="contact-info">
             <p class="contact-email">
-              <strong>Email</strong><br>
+              <strong><span class="contact-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> Email</strong><br>
               <a href="mailto:hello@soulcut.video">hello@soulcut.video</a>
             </p>
             <p class="contact-links">
-              <strong>Quick links</strong><br>
-              <a href="https://wa.me/1234567890" target="_blank" rel="noopener">WhatsApp</a> ·
-              <a href="https://t.me/soulcutvideo" target="_blank" rel="noopener">Telegram</a>
+              <strong><span class="contact-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span> Quick links</strong><br>
+              <a href="https://www.instagram.com/soulcut.video/" target="_blank" rel="noopener">Instagram</a>
             </p>
           </div>
         </div>
