@@ -898,6 +898,7 @@ a:hover {
   margin: 0 0 20px;
   font-size: 0.95rem;
   color: var(--text-muted);
+  line-height: 1.4;
 }
 
 .contact-email:last-child,
@@ -911,7 +912,7 @@ a:hover {
   font-size: 0.8rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .contact-icon {
