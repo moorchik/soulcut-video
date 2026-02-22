@@ -960,18 +960,55 @@ a:hover {
     top: 0;
     right: 0;
     width: 260px;
-    height: 100vh;
+    height: auto;
+    max-height: 100vh;
     background: var(--bg-elevated);
     flex-direction: column;
-    padding: 80px 32px 32px;
-    gap: 24px;
+    padding: 72px 32px 24px;
+    gap: 8px;
     transform: translateX(calc(100% + 24px));
     transition: transform 0.3s var(--ease-out);
     box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+    align-items: stretch;
   }
 
   .nav-links.open {
     transform: translateX(0);
+  }
+
+  .nav-links .nav-close-item {
+    list-style: none;
+    margin: 24px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-close-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: var(--text);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .nav-close-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .nav-links > li:not(.nav-close-item) {
+    margin: 0;
   }
 
   .nav-toggle {

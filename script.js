@@ -31,6 +31,14 @@
         document.body.style.overflow = '';
       });
     });
+    var closeBtn = navLinks.querySelector('.nav-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        toggle.classList.remove('open');
+        navLinks.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
   }
 
   // ----- Smooth scroll for anchor links -----
