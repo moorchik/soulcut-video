@@ -115,41 +115,45 @@ a:hover {
 }
 
 .nav-logo {
-  display: block;
+  display: inline-block;
   line-height: 0;
   position: relative;
   overflow: visible;
   transition: transform 0.35s var(--ease-out);
 }
 
-.nav-logo::before {
-  content: "";
+.nav-logo-gold {
   position: absolute;
-  inset: -20%;
-  border-radius: 50%;
-  background: radial-gradient(
-    400px circle at var(--logo-x, 50%) var(--logo-y, 50%),
-    rgba(201, 169, 98, 0.18),
-    transparent 40%
-  );
-  opacity: 0;
-  transition: opacity 0.3s var(--ease-out);
-  pointer-events: none;
-}
-
-.nav-logo:hover::before {
-  opacity: 1;
-}
-
-.nav.scrolled .nav-logo img {
-  transform: scale(0.85);
-}
-
-.nav-logo img {
+  left: 0;
+  top: 0;
   height: 72px;
   width: auto;
   display: block;
+  pointer-events: none;
   transition: transform 0.35s var(--ease-out);
+}
+
+.nav-logo-white {
+  position: relative;
+  display: block;
+  height: 72px;
+  width: auto;
+  z-index: 1;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.nav-logo:hover .nav-logo-white {
+  -webkit-mask-image: radial-gradient(circle 140px at var(--logo-x, 50%) var(--logo-y, 50%), transparent, black);
+  mask-image: radial-gradient(circle 140px at var(--logo-x, 50%) var(--logo-y, 50%), transparent, black);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.nav.scrolled .nav-logo .nav-logo-gold,
+.nav.scrolled .nav-logo .nav-logo-white {
+  transform: scale(0.85);
 }
 
 .nav-links {
@@ -241,12 +245,22 @@ a:hover {
 
 .hero-bg-image {
   position: absolute;
-  inset: 0;
+  left: -10%;
+  top: -10%;
+  width: 120%;
+  height: 120%;
   z-index: 0;
   background-color: var(--bg);
   background-image: url(images/hero-bg.png);
   background-size: cover;
   background-position: center;
+  will-change: transform;
+  transition: transform 0.15s ease-out;
+  transform: translateY(var(--hero-scroll-y, 0)) translate(var(--hero-bg-x, 0), var(--hero-bg-y, 0));
+}
+
+.hero {
+  overflow: hidden;
 }
 
 .hero-video-wrap {
@@ -270,9 +284,9 @@ a:hover {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(10, 10, 11, 0.4) 0%,
-    rgba(10, 10, 11, 0.6) 50%,
-    rgba(10, 10, 11, 0.85) 100%
+    rgba(10, 10, 11, 0.5) 0%,
+    rgba(10, 10, 11, 0.65) 40%,
+    rgba(10, 10, 11, 0.88) 100%
   );
   pointer-events: none;
 }
@@ -479,7 +493,9 @@ a:hover {
 .section-reveal .faq-list,
 .section-reveal .testimonial-carousel-wrap,
 .section-reveal .testimonial-featured,
-.section-reveal .how-steps {
+.section-reveal .how-steps,
+.section-reveal .instagram-cta,
+.section-reveal .instagram-grid {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
@@ -491,10 +507,26 @@ a:hover {
   transition-delay: 0.25s;
 }
 
+.section-reveal .portfolio-grid {
+  opacity: 1;
+  transform: none;
+}
+
+.section-reveal .portfolio-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out);
+}
+
 .section-reveal.is-visible .portfolio-grid {
   opacity: 1;
+  transform: none;
+}
+
+.section-reveal.is-visible .portfolio-item {
+  opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.35s;
+  transition-delay: calc(0.3s + var(--stagger-index, 0) * 0.065s);
 }
 
 .section-reveal.is-visible .services-grid {
@@ -540,6 +572,18 @@ a:hover {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.15s;
+}
+
+.section-reveal.is-visible .instagram-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.section-reveal.is-visible .instagram-grid {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
 }
 
 .section-title {
@@ -1431,6 +1475,48 @@ a:hover {
   font-weight: 500;
 }
 
+/* ----- Instagram ----- */
+.instagram {
+  background: var(--bg-subtle);
+}
+
+.instagram-cta {
+  margin: 0 0 32px;
+  text-align: center;
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.instagram-grid .instagram-media {
+  min-height: 280px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.instagram-grid iframe {
+  border-radius: var(--radius);
+  width: 100% !important;
+  min-height: 280px !important;
+}
+
+@media (max-width: 768px) {
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .instagram-grid .instagram-media,
+  .instagram-grid iframe {
+    min-height: 200px !important;
+  }
+}
+
 /* ----- Contact ----- */
 .contact {
   background: var(--bg);
@@ -1713,7 +1799,8 @@ a:hover {
     padding: 10px 20px;
   }
 
-  .nav-logo img {
+  .nav-logo .nav-logo-gold,
+  .nav-logo .nav-logo-white {
     height: 55px;
   }
 

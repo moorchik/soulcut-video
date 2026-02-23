@@ -15,6 +15,52 @@
     onScroll();
   }
 
+  // ----- Hero parallax: background image (hero-bg.png) follows cursor + scroll (throttled) -----
+  var hero = document.getElementById('hero');
+  var heroBgImage = hero && hero.querySelector('.hero-bg-image');
+  if (hero && heroBgImage) {
+    var heroBgX = 0;
+    var heroBgY = 0;
+    var PARALLAX_SCROLL_RATE = 0.35;
+    var CURSOR_STRENGTH = 18;
+    var parallaxScheduled = false;
+
+    function updateHeroBgParallax() {
+      var rect = hero.getBoundingClientRect();
+      var scrollY = window.scrollY;
+      var heroHeight = rect.height + rect.top;
+      var scrollYpx = scrollY <= heroHeight ? scrollY * PARALLAX_SCROLL_RATE : heroHeight * PARALLAX_SCROLL_RATE;
+      heroBgImage.style.setProperty('--hero-scroll-y', scrollYpx + 'px');
+      heroBgImage.style.setProperty('--hero-bg-x', heroBgX + 'px');
+      heroBgImage.style.setProperty('--hero-bg-y', heroBgY + 'px');
+      parallaxScheduled = false;
+    }
+
+    function scheduleParallax() {
+      if (parallaxScheduled) return;
+      parallaxScheduled = true;
+      requestAnimationFrame(updateHeroBgParallax);
+    }
+
+    window.addEventListener('scroll', scheduleParallax, { passive: true });
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      var cx = rect.left + rect.width / 2;
+      var cy = rect.top + rect.height / 2;
+      var w = rect.width;
+      var h = rect.height;
+      heroBgX = ((e.clientX - cx) / w) * CURSOR_STRENGTH;
+      heroBgY = ((e.clientY - cy) / h) * CURSOR_STRENGTH;
+      scheduleParallax();
+    });
+    hero.addEventListener('mouseleave', function () {
+      heroBgX = 0;
+      heroBgY = 0;
+      scheduleParallax();
+    });
+    updateHeroBgParallax();
+  }
+
   // ----- Logo hover: golden shimmer follows cursor -----
   var navLogo = document.querySelector('.nav-logo');
   if (navLogo) {
@@ -316,7 +362,15 @@
     var revealObserver = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            if (entry.target.id === 'portfolio') {
+              var items = entry.target.querySelectorAll('.portfolio-item');
+              items.forEach(function (item, i) {
+                item.style.setProperty('--stagger-index', String(i));
+              });
+            }
+          }
         });
       },
       { rootMargin: '0px 0px -80px 0px', threshold: 0 }
@@ -324,6 +378,27 @@
     revealSections.forEach(function (section) {
       revealObserver.observe(section);
     });
+  }
+
+  // ----- Instagram: load embed.js only when section is in view (faster initial load) -----
+  var instagramSection = document.getElementById('instagram');
+  if (instagramSection && 'IntersectionObserver' in window) {
+    var instagramObserver = new IntersectionObserver(
+      function (entries) {
+        var entry = entries[0];
+        if (!entry || !entry.isIntersecting) return;
+        instagramObserver.disconnect();
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.instagram.com/embed.js';
+        script.onload = function () {
+          if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+        };
+        document.body.appendChild(script);
+      },
+      { rootMargin: '200px 0px', threshold: 0 }
+    );
+    instagramObserver.observe(instagramSection);
   }
 
   // ----- Back to top: show after scroll, click scrolls to hero -----
