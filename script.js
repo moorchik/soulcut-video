@@ -69,7 +69,9 @@
   function getGoogleDriveEmbedUrl(src) {
     if (!src || src.indexOf('drive.google.com') === -1) return null;
     var match = src.match(/\/d\/([a-zA-Z0-9_-]+)/);
-    return match ? 'https://drive.google.com/file/d/' + match[1] + '/preview' : null;
+    if (!match) return null;
+    var base = 'https://drive.google.com/file/d/' + match[1] + '/preview';
+    return base + (base.indexOf('?') === -1 ? '?' : '&') + 'autoplay=1';
   }
 
   function openModal(src) {
@@ -169,6 +171,12 @@
       var category = this.getAttribute('data-category');
       filterBtns.forEach(function (b) { b.classList.remove('active'); });
       this.classList.add('active');
+
+      // If filtering by a specific category, expand grid so items inside "View all" block are visible
+      if (portfolioGrid && viewAllBtn && category !== 'all' && !portfolioGrid.classList.contains('portfolio-grid--expanded')) {
+        portfolioGrid.classList.add('portfolio-grid--expanded');
+        viewAllBtn.textContent = 'Show less';
+      }
 
       portfolioItems.forEach(function (item) {
         var itemCat = item.getAttribute('data-category');

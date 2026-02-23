@@ -87,7 +87,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 32px;
+  padding: 9px 21px;
   background: rgba(10, 10, 11, 0.92);
   backdrop-filter: blur(12px);
 }
@@ -98,7 +98,7 @@ a:hover {
 }
 
 .nav-logo img {
-  height: 110px;
+  height: 72px;
   width: auto;
   display: block;
 }
@@ -108,15 +108,15 @@ a:hover {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 32px;
-  margin-right: 24px;
+  gap: 21px;
+  margin-right: 16px;
 }
 
 .nav-links a {
   color: var(--text-muted);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
-  padding: 8px 6px;
+  padding: 5px 4px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -156,6 +156,19 @@ a:hover {
   align-items: center;
   text-align: center;
   overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28vh;
+  min-height: 180px;
+  background: linear-gradient(to bottom, transparent 0%, var(--bg) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-bg-image {
@@ -215,6 +228,38 @@ a:hover {
   opacity: 0;
   transform: translateY(24px);
   animation: fadeUp 1s var(--ease-out) 0.2s forwards;
+}
+
+.hero-card {
+  background: rgba(18, 18, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 32px 40px 36px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 1s var(--ease-out) 0.3s forwards;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.hero-card .hero-title {
+  margin: 0 0 16px;
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+.hero-card .hero-sub {
+  margin: 0 0 24px;
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+.hero-card .hero-cta {
+  margin: 0;
+  animation: none;
+  opacity: 1;
+  transform: none;
 }
 
 .hero-sub {
@@ -292,18 +337,19 @@ a:hover {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  color: var(--text-muted);
+  color: #fff;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   opacity: 0;
   animation: fadeUp 0.8s var(--ease-out) 1s forwards;
+  z-index: 2;
 }
 
 .scroll-line {
   width: 1px;
   height: 40px;
-  background: linear-gradient(to bottom, var(--text-muted), transparent);
+  background: linear-gradient(to bottom, #fff, transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
@@ -558,6 +604,69 @@ a:hover {
   letter-spacing: 0.02em;
 }
 
+/* ----- Portfolio page (YouTube-style) ----- */
+.page-portfolio {
+  background: var(--bg);
+}
+
+.portfolio-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav--portfolio {
+  background: rgba(10, 10, 11, 0.98);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.nav--portfolio.scrolled,
+.nav--portfolio {
+  background: rgba(10, 10, 11, 0.98);
+}
+
+.nav-link--current {
+  color: var(--accent) !important;
+}
+
+.portfolio-page-main {
+  padding-top: 24px;
+  padding-bottom: 80px;
+  min-height: 60vh;
+}
+
+.container--wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.portfolio-page-title-wrap {
+  margin-bottom: 32px;
+}
+
+.portfolio-page-title {
+  font-family: var(--font-body);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--text);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.portfolio-page-sub {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.portfolio-grid--page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
+  gap: 24px;
+}
+
 /* ----- Video Modal ----- */
 .video-modal {
   position: fixed;
@@ -588,7 +697,7 @@ a:hover {
 .video-modal-inner {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1125px;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 0 60px var(--accent-dim), 0 24px 48px rgba(0, 0, 0, 0.5);
@@ -944,6 +1053,28 @@ a:hover {
   color: var(--text-muted);
 }
 
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 48px;
+  margin-bottom: 24px;
+}
+
+.footer-contact .contact-email,
+.footer-contact .contact-links {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
 /* ----- Responsive ----- */
 @media (max-width: 900px) {
   .contact-wrap {
@@ -1053,6 +1184,10 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+  .hero-card {
+    padding: 24px 24px 28px;
+  }
+
   .hero-cta {
     flex-direction: column;
     width: 100%;
