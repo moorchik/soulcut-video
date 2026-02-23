@@ -493,9 +493,7 @@ a:hover {
 .section-reveal .faq-list,
 .section-reveal .testimonial-carousel-wrap,
 .section-reveal .testimonial-featured,
-.section-reveal .how-steps,
-.section-reveal .instagram-cta,
-.section-reveal .instagram-grid {
+.section-reveal .how-steps {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
@@ -572,18 +570,6 @@ a:hover {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.15s;
-}
-
-.section-reveal.is-visible .instagram-cta {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
-}
-
-.section-reveal.is-visible .instagram-grid {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.3s;
 }
 
 .section-title {
@@ -1032,6 +1018,39 @@ a:hover {
   pointer-events: none;
 }
 
+.video-modal-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.video-modal-fallback[hidden] {
+  display: none;
+}
+
+.video-modal-fallback p {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.video-modal-fallback a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.video-modal-fallback a:hover {
+  text-decoration: underline;
+}
+
 .video-modal-spinner {
   width: 48px;
   height: 48px;
@@ -1473,48 +1492,6 @@ a:hover {
 .about-content strong {
   color: var(--accent);
   font-weight: 500;
-}
-
-/* ----- Instagram ----- */
-.instagram {
-  background: var(--bg-subtle);
-}
-
-.instagram-cta {
-  margin: 0 0 32px;
-  text-align: center;
-}
-
-.instagram-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.instagram-grid .instagram-media {
-  min-height: 280px;
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.instagram-grid iframe {
-  border-radius: var(--radius);
-  width: 100% !important;
-  min-height: 280px !important;
-}
-
-@media (max-width: 768px) {
-  .instagram-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  .instagram-grid .instagram-media,
-  .instagram-grid iframe {
-    min-height: 200px !important;
-  }
 }
 
 /* ----- Contact ----- */

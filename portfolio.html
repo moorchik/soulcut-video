@@ -178,6 +178,10 @@
           <div class="video-modal-loading" id="videoModalLoading" aria-hidden="true">
             <span class="video-modal-spinner"></span>
           </div>
+          <div class="video-modal-fallback" id="videoModalFallback" hidden>
+            <p>Video didn't load here. Try opening the link in a new tab:</p>
+            <a id="videoModalFallbackLink" href="#" target="_blank" rel="noopener">Open video</a>
+          </div>
           <video controls playsinline preload="auto"></video>
           <iframe class="video-modal-iframe" allowfullscreen allow="autoplay; fullscreen" title="Video"></iframe>
         </div>

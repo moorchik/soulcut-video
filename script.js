@@ -134,6 +134,10 @@
   var modalBackdrop = modal && modal.querySelector('.video-modal-backdrop');
   var modalClose = modal && modal.querySelector('.video-modal-close');
   var modalLoading = document.getElementById('videoModalLoading');
+  var modalFallback = document.getElementById('videoModalFallback');
+  var modalFallbackLink = document.getElementById('videoModalFallbackLink');
+  var videoLoadTimeoutId = null;
+  var VIDEO_LOAD_TIMEOUT_MS = 12000;
 
   function hideModalLoading() {
     if (modalLoading) modalLoading.classList.add('is-hidden');
@@ -141,6 +145,24 @@
 
   function showModalLoading() {
     if (modalLoading) modalLoading.classList.remove('is-hidden');
+  }
+
+  function showModalFallback(openUrl) {
+    if (modalFallback) {
+      modalFallback.hidden = false;
+    }
+    if (modalFallbackLink && openUrl) {
+      modalFallbackLink.href = openUrl;
+      modalFallbackLink.textContent = 'Open video';
+    }
+  }
+
+  function hideModalFallback() {
+    if (modalFallback) modalFallback.hidden = true;
+    if (modalFallbackLink) {
+      modalFallbackLink.href = '#';
+      modalFallbackLink.textContent = 'Open video';
+    }
   }
 
   function isDropboxUrl(src) {
@@ -157,7 +179,23 @@
 
   function openModal(src) {
     if (!modal || !modalPlayer) return;
+    hideModalFallback();
     showModalLoading();
+    if (videoLoadTimeoutId) clearTimeout(videoLoadTimeoutId);
+    videoLoadTimeoutId = setTimeout(function () {
+      videoLoadTimeoutId = null;
+      hideModalLoading();
+      showModalFallback(src);
+    }, VIDEO_LOAD_TIMEOUT_MS);
+
+    function doneLoading() {
+      if (videoLoadTimeoutId) {
+        clearTimeout(videoLoadTimeoutId);
+        videoLoadTimeoutId = null;
+      }
+      hideModalLoading();
+    }
+
     var driveEmbed = getGoogleDriveEmbedUrl(src);
     if (driveEmbed) {
       if (modalVideo) {
@@ -168,7 +206,7 @@
         modalIframe.style.display = 'block';
         modalIframe.onload = function () {
           modalIframe.onload = null;
-          hideModalLoading();
+          doneLoading();
         };
         modalIframe.src = driveEmbed;
       }
@@ -183,7 +221,7 @@
         modalIframe.style.display = 'block';
         modalIframe.onload = function () {
           modalIframe.onload = null;
-          hideModalLoading();
+          doneLoading();
         };
         modalIframe.src = viewUrl;
       }
@@ -198,7 +236,14 @@
         modalVideo.currentTime = 0;
         modalVideo.oncanplay = function () {
           modalVideo.oncanplay = null;
-          hideModalLoading();
+          modalVideo.onerror = null;
+          doneLoading();
+        };
+        modalVideo.onerror = function () {
+          modalVideo.oncanplay = null;
+          modalVideo.onerror = null;
+          doneLoading();
+          showModalFallback(src);
         };
         modalVideo.play().catch(function () {});
       }
@@ -210,13 +255,20 @@
 
   function closeModal() {
     if (!modal) return;
+    if (videoLoadTimeoutId) {
+      clearTimeout(videoLoadTimeoutId);
+      videoLoadTimeoutId = null;
+    }
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     if (modalLoading) modalLoading.classList.add('is-hidden');
+    hideModalFallback();
     if (modalVideo) {
       modalVideo.pause();
       modalVideo.removeAttribute('src');
       modalVideo.style.display = 'block';
+      modalVideo.oncanplay = null;
+      modalVideo.onerror = null;
     }
     if (modalIframe) {
       modalIframe.removeAttribute('src');
@@ -378,27 +430,6 @@
     revealSections.forEach(function (section) {
       revealObserver.observe(section);
     });
-  }
-
-  // ----- Instagram: load embed.js only when section is in view (faster initial load) -----
-  var instagramSection = document.getElementById('instagram');
-  if (instagramSection && 'IntersectionObserver' in window) {
-    var instagramObserver = new IntersectionObserver(
-      function (entries) {
-        var entry = entries[0];
-        if (!entry || !entry.isIntersecting) return;
-        instagramObserver.disconnect();
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.instagram.com/embed.js';
-        script.onload = function () {
-          if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
-        };
-        document.body.appendChild(script);
-      },
-      { rootMargin: '200px 0px', threshold: 0 }
-    );
-    instagramObserver.observe(instagramSection);
   }
 
   // ----- Back to top: show after scroll, click scrolls to hero -----
