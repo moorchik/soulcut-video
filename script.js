@@ -208,7 +208,6 @@
           modalIframe.onload = null;
           doneLoading();
         };
-        modalIframe.src = driveEmbed;
       }
     } else if (isDropboxUrl(src)) {
       if (modalVideo) {
@@ -248,9 +247,16 @@
         modalVideo.play().catch(function () {});
       }
     }
+
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+
+    if (driveEmbed && modalIframe) {
+      setTimeout(function () {
+        modalIframe.src = driveEmbed;
+      }, 50);
+    }
   }
 
   function closeModal() {
