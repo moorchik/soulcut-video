@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found — Soulcut Video</title>
+  <link rel="icon" href="images/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=6">
+  <style>
+    .error-page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; background: var(--bg); }
+    .error-page h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 700; color: var(--text); margin: 0 0 12px; letter-spacing: 0.03em; }
+    .error-page p { color: var(--text-muted); margin: 0 0 28px; font-size: 1.1rem; }
+    .error-page .error-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .error-page .btn { margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="portfolio-page-header">
+      <nav class="nav nav--portfolio">
+        <a href="index.html" class="nav-logo">
+          <img src="images/logo.svg" alt="Soulcut Video">
+        </a>
+        <button class="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li class="nav-close-item">
+            <button type="button" class="nav-close-btn" aria-label="Close menu">&times;</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="error-page">
+      <h1>404</h1>
+      <p>This page doesn’t exist or has been moved.</p>
+      <div class="error-links">
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+        <a href="portfolio.html" class="btn btn-outline">Portfolio</a>
+        <a href="index.html#contact" class="btn btn-outline">Contact</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Soulcut Video. Wedding film editing.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

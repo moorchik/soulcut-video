@@ -5,11 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — Soulcut Video</title>
   <meta name="description" content="Watch our wedding video edits: highlights, full films, ceremony and reception edits, social teasers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.soulcut.video/portfolio.html">
+  <meta property="og:title" content="Portfolio — Soulcut Video">
+  <meta property="og:description" content="Wedding video editing showreel: highlights, full films, ceremony and reception edits, social teasers.">
+  <meta property="og:image" content="https://www.soulcut.video/images/banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio — Soulcut Video">
+  <meta name="twitter:description" content="Wedding video editing showreel: highlights, full films, ceremony and reception edits.">
+  <meta name="twitter:image" content="https://www.soulcut.video/images/banner.png">
   <link rel="icon" href="images/icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body class="page-portfolio">
   <div class="page-wrap">
@@ -26,7 +38,9 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="portfolio.html" class="nav-link--current">Portfolio</a></li>
           <li><a href="index.html#services">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
           <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
           <li><a href="index.html#contact">Contact</a></li>
           <li class="nav-close-item">
             <button type="button" class="nav-close-btn" aria-label="Close menu">&times;</button>
@@ -38,6 +52,11 @@
     <!-- MAIN: video grid (all visible, no "View all") -->
     <main class="portfolio-page-main">
       <div class="container container--wide">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">→</span>
+          <span>Portfolio</span>
+        </nav>
         <div class="portfolio-page-title-wrap">
           <h1 class="portfolio-page-title">Portfolio</h1>
         </div>
@@ -49,11 +68,12 @@
           <button class="filter-btn" data-category="reception">Reception Edits</button>
           <button class="filter-btn" data-category="teasers">Social Media Teasers</button>
         </div>
+        <p class="portfolio-empty" id="portfolioEmpty" hidden>No videos in this category yet.</p>
         <div class="portfolio-grid portfolio-grid--page">
           <article class="portfolio-item" data-category="highlights">
             <div class="portfolio-thumb" data-video-src="https://drive.google.com/file/d/13GB67Tp0KiJzBZZAiaZ2nqH0YO3bQHIp/view?usp=sharing">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="images/geoff-lauren.png" alt="Geoff & Lauren — wedding highlight">
+              <img src="images/geoff-lauren.png" alt="Geoff & Lauren — wedding highlight" loading="lazy">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
@@ -64,7 +84,7 @@
           <article class="portfolio-item" data-category="highlights">
             <div class="portfolio-thumb" data-video-src="https://drive.google.com/file/d/1EdnTbY3fhzPwjUNXWImo-atitNehXLEn/view?usp=drive_link">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="images/paige-mike.png" alt="Paige & Mike — wedding highlight">
+              <img src="images/paige-mike.png" alt="Paige & Mike — wedding highlight" loading="lazy">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
@@ -75,7 +95,7 @@
           <article class="portfolio-item" data-category="highlights">
             <div class="portfolio-thumb" data-video-src="https://drive.google.com/file/d/1sqq61Bxm7G3GFhzSi5GOmZIiDG4wSADL/view?usp=sharing">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="images/carlee-jevan.png" alt="Carlee & Jevan — wedding highlight">
+              <img src="images/carlee-jevan.png" alt="Carlee & Jevan — wedding highlight" loading="lazy">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
@@ -86,7 +106,7 @@
           <article class="portfolio-item" data-category="highlights">
             <div class="portfolio-thumb" data-video-src="https://drive.google.com/file/d/1ePK_1S37dD04lT5c8keeN4l85c7M2VHf/view?usp=sharing">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="images/kiera-sascha.png" alt="Kiera and Sascha — wedding highlight">
+              <img src="images/kiera-sascha.png" alt="Kiera and Sascha — wedding highlight" loading="lazy">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
@@ -97,7 +117,7 @@
           <article class="portfolio-item" data-category="reception">
             <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-couple-getting-married-on-the-beach-41365-large.mp4">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Reception edit">
+              <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Reception edit" loading="lazy">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
@@ -108,7 +128,7 @@
           <article class="portfolio-item" data-category="teasers">
             <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-wedding-ceremony-41364-large.mp4">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Social teaser">
+              <img src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Social teaser" loading="lazy">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
@@ -119,7 +139,7 @@
           <article class="portfolio-item" data-category="highlights">
             <div class="portfolio-thumb" data-video-src="https://assets.mixkit.co/videos/preview/mixkit-couple-getting-married-on-the-beach-41365-large.mp4">
               <video class="portfolio-thumb-video" muted loop playsinline preload="metadata"></video>
-              <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Highlight">
+              <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Highlight" loading="lazy">
               <div class="portfolio-hover">
                 <span class="play-icon"></span>
                 <span>Watch</span>
@@ -154,7 +174,10 @@
       <div class="video-modal-inner">
         <button class="video-modal-close" aria-label="Close">&times;</button>
         <div class="video-modal-player">
-          <video controls playsinline></video>
+          <div class="video-modal-loading" id="videoModalLoading" aria-hidden="true">
+            <span class="video-modal-spinner"></span>
+          </div>
+          <video controls playsinline preload="auto"></video>
           <iframe class="video-modal-iframe" allowfullscreen allow="autoplay; fullscreen" title="Video"></iframe>
         </div>
       </div>
