@@ -315,8 +315,8 @@
     });
   });
 
-  // ----- Portfolio: category filter -----
-  var filterBtns = document.querySelectorAll('.filter-btn');
+  // ----- Portfolio: category filter (only buttons with data-category; pricing tabs use data-package) -----
+  var filterBtns = document.querySelectorAll('.filter-btn[data-category]');
   var portfolioItems = document.querySelectorAll('.portfolio-item');
 
   filterBtns.forEach(function (btn) {
