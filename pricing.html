@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pricing — Soulcut Video</title>
-  <meta name="description" content="Wedding video editing rates: highlights, full films, ceremony edits. Get a custom quote for your project.">
+  <meta name="description" content="Wedding video editing rates: teasers, highlights, full films. Transparent pricing and packages. Get a custom quote.">
   <link rel="icon" href="images/icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
-<body class="page-portfolio">
+<body class="page-pricing">
   <div class="page-wrap">
     <header class="portfolio-page-header">
       <nav class="nav nav--portfolio">
@@ -28,6 +27,7 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="index.html#services">Services</a></li>
           <li><a href="pricing.html" class="nav-link--current">Pricing</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#faq">FAQ</a></li>
           <li><a href="index.html#contact">Contact</a></li>
@@ -38,36 +38,253 @@
       </nav>
     </header>
 
-    <main class="portfolio-page-main pricing-page-main">
+    <main class="pricing-main">
+      <a href="#pricing-name" class="skip-link">Skip to contact form</a>
       <div class="container container--wide">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="breadcrumb-sep" aria-hidden="true">→</span>
-          <span>Pricing</span>
-        </nav>
-        <h1 class="portfolio-page-title">Pricing</h1>
-        <p class="pricing-lead">Rates depend on project type and length. Send us your details and we’ll reply with a custom quote within 24 hours.</p>
-        <div class="pricing-teaser">
-          <p class="pricing-from">Highlights from $XXX · Full films from $XXX</p>
-          <p class="pricing-note">Exact price based on footage length, deliverables, and turnaround. One round of revisions included.</p>
-        </div>
-        <p class="pricing-cta-wrap">
-          <a href="index.html#contact" class="btn btn-primary">Get a quote</a>
-        </p>
+        <h1 class="pricing-hero-title">Pricing</h1>
+        <p class="pricing-hero-lead">Simple pricing. No hidden fees. Choose a package or ask for a custom quote.</p>
+        <p class="pricing-hero-guarantee">No prepayment — you pay after you're happy with the result.</p>
       </div>
+
+      <!-- PRICING IN THE PACKAGES: tabs + one panel + contact -->
+      <section class="section pricing-packages-section" id="pricing-plans">
+        <div class="container container--wide">
+          <h2 class="section-title">Pricing in the packages</h2>
+          <div class="pricing-tabs-wrap">
+            <div class="pricing-tabs" role="tablist" aria-label="Package type">
+              <button type="button" id="tab-teaser" class="filter-btn pricing-tab active" role="tab" aria-selected="true" data-package="teaser">Teaser</button>
+              <button type="button" id="tab-highlight" class="filter-btn pricing-tab" role="tab" aria-selected="false" data-package="highlight">Highlight</button>
+              <button type="button" id="tab-film" class="filter-btn pricing-tab" role="tab" aria-selected="false" data-package="film">Full Film</button>
+              <button type="button" id="tab-highlight-film" class="filter-btn pricing-tab" role="tab" aria-selected="false" data-package="highlight-film">Highlight + Full Film</button>
+              <button type="button" id="tab-highlight-film-teaser" class="filter-btn pricing-tab pricing-tab--best" role="tab" aria-selected="false" data-package="highlight-film-teaser"><span class="pricing-tab-label">Highlight + Film + Teaser</span> <span class="pricing-tab-badge">Best Value</span></button>
+              <button type="button" id="tab-custom" class="filter-btn pricing-tab" role="tab" aria-selected="false" data-package="custom">Custom</button>
+            </div>
+            <div class="pricing-live-announce" aria-live="polite" aria-atomic="true" role="status"></div>
+          </div>
+
+          <div class="pricing-panels-wrap">
+            <div class="pricing-panel-col">
+              <!-- Panel: Teaser -->
+              <div class="pricing-panel is-visible" id="panel-teaser" role="tabpanel" aria-labelledby="tab-teaser">
+                <h3 class="pricing-panel-title">Teaser</h3>
+                <p class="pricing-panel-duration">Short 30–60 sec emotional preview for social or save-the-date. From $100, typically 1–2 weeks.</p>
+                <p class="pricing-panel-price">from $100</p>
+                <ul class="pricing-panel-features">
+                  <li>3 rounds of revisions</li>
+                  <li>Delivery within 14 days</li>
+                  <li>4K export · Premiere Pro project file</li>
+                  <li>Color grading & licensed music</li>
+                </ul>
+                <p class="pricing-panel-portfolio"><a href="portfolio.html">See examples in Portfolio →</a></p>
+              </div>
+              <!-- Panel: Highlight -->
+              <div class="pricing-panel" id="panel-highlight" role="tabpanel" aria-labelledby="tab-highlight" hidden>
+                <h3 class="pricing-panel-title">Highlight</h3>
+                <p class="pricing-panel-duration">Cinematic 3–6 min story of the best moments of the day. From $250, typically 1–2 weeks.</p>
+                <p class="pricing-panel-price">from $250</p>
+                <ul class="pricing-panel-features">
+                  <li>3 rounds of revisions</li>
+                  <li>Delivery within 14 days</li>
+                  <li>4K export · Premiere Pro project file</li>
+                  <li>Color grading & licensed music</li>
+                </ul>
+                <p class="pricing-panel-portfolio"><a href="portfolio.html">See examples in Portfolio →</a></p>
+              </div>
+              <!-- Panel: Full Film -->
+              <div class="pricing-panel" id="panel-film" role="tabpanel" aria-labelledby="tab-film" hidden>
+                <h3 class="pricing-panel-title">Full Film</h3>
+                <p class="pricing-panel-duration">Full wedding day coverage, 30–60 min, with ceremony and reception. From $300, typically 2–3 weeks.</p>
+                <p class="pricing-panel-price">from $300</p>
+                <ul class="pricing-panel-features">
+                  <li>3 rounds of revisions</li>
+                  <li>Delivery within 14 days</li>
+                  <li>4K export · Premiere Pro project file</li>
+                  <li>Color grading & licensed music</li>
+                </ul>
+                <p class="pricing-panel-portfolio"><a href="portfolio.html">See examples in Portfolio →</a></p>
+              </div>
+              <!-- Panel: Highlight + Full Film -->
+              <div class="pricing-panel" id="panel-highlight-film" role="tabpanel" aria-labelledby="tab-highlight-film" hidden>
+                <h3 class="pricing-panel-title">Highlight + Full Film</h3>
+                <p class="pricing-panel-duration">Complete wedding story: highlight (3–6 min) + full film (30–60 min). From $400, typically 2–4 weeks.</p>
+                <p class="pricing-panel-price">from $400</p>
+                <ul class="pricing-panel-features">
+                  <li>3 rounds of revisions</li>
+                  <li>Delivery within 14 days</li>
+                  <li>4K export · Premiere Pro project file</li>
+                  <li>Color grading & licensed music</li>
+                </ul>
+                <p class="pricing-panel-portfolio"><a href="portfolio.html">See examples in Portfolio →</a></p>
+              </div>
+              <!-- Panel: Highlight + Full Film + Teaser -->
+              <div class="pricing-panel" id="panel-highlight-film-teaser" role="tabpanel" aria-labelledby="tab-highlight-film-teaser" hidden>
+                <span class="pricing-panel-badge">Best Value</span>
+                <h3 class="pricing-panel-title">Highlight + Full Film + Teaser</h3>
+                <p class="pricing-panel-duration">Full package: teaser + highlight + full film. Maximum coverage. From $450, typically 3–4 weeks.</p>
+                <p class="pricing-panel-price">from $450</p>
+                <ul class="pricing-panel-features">
+                  <li>3 rounds of revisions</li>
+                  <li>Delivery within 14 days</li>
+                  <li>4K export · Premiere Pro project file</li>
+                  <li>Color grading & licensed music</li>
+                </ul>
+                <p class="pricing-panel-portfolio"><a href="portfolio.html">See examples in Portfolio →</a></p>
+              </div>
+              <!-- Panel: Custom -->
+              <div class="pricing-panel" id="panel-custom" role="tabpanel" aria-labelledby="tab-custom" hidden>
+                <h3 class="pricing-panel-title">Custom</h3>
+                <p class="pricing-panel-duration">Flexible format: ceremony-only, reception edit, or tailored length. Individual approach based on your needs.</p>
+                <p class="pricing-panel-price pricing-panel-price--custom">Contact us</p>
+                <ul class="pricing-panel-features">
+                  <li>Flexible format & length</li>
+                  <li>Same quality & turnaround</li>
+                  <li>Quote within 24 hours</li>
+                </ul>
+                <p class="pricing-panel-portfolio"><a href="portfolio.html">See examples in Portfolio →</a></p>
+              </div>
+            </div>
+
+            <!-- Contact form (side on desktop, below on mobile) -->
+            <aside class="pricing-contact-sidebar" id="pricing-contact">
+              <p class="pricing-not-sure">Not sure which package fits? Tell us about your project and we'll suggest one.</p>
+              <div class="pricing-contact-card">
+                <h2 class="section-title section-title--small">Get a quote</h2>
+                <p class="section-sub">We’ll reply within 24 hours.</p>
+                <div class="form-success" id="formSuccess" hidden>
+                  <div class="form-success-inner">
+                    <span class="form-success-icon">✓</span>
+                    <p class="form-success-text">Success!</p>
+                    <p class="form-success-sub">We'll get back to you soon.</p>
+                  </div>
+                </div>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdalwqzw" method="POST">
+                  <input type="hidden" name="_subject" value="Soulcut Pricing: new message">
+                  <div class="form-row">
+                    <label for="pricing-name">Name</label>
+                    <input type="text" id="pricing-name" name="name" required placeholder="Your name">
+                  </div>
+                  <div class="form-row">
+                    <label for="pricing-email">Email</label>
+                    <input type="email" id="pricing-email" name="_replyto" required placeholder="your@email.com">
+                  </div>
+                  <div class="form-row">
+                    <label for="pricing-message">Message</label>
+                    <textarea id="pricing-message" name="message" rows="4" required placeholder="Project type, timeline, any special requests..."></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-full">Send message</button>
+                </form>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT'S INCLUDED (workflow chronology) -->
+      <section class="section pricing-section pricing-section--alt" id="whats-included">
+        <div class="container container--wide">
+          <h2 class="section-title">What's included</h2>
+          <p class="section-sub">Stages of our collaboration</p>
+          <div class="whats-included-cols">
+            <ol class="whats-included-timeline" start="1">
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--delivery" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">1</span>
+                <span class="whats-included-step-text">Delivery within 14 days</span>
+              </li>
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--color" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">2</span>
+                <span class="whats-included-step-text">Professional color grading</span>
+              </li>
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--sound" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">3</span>
+                <span class="whats-included-step-text">Audio processing and cleanup</span>
+              </li>
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--film" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">4</span>
+                <span class="whats-included-step-text">Make beautiful storytelling</span>
+              </li>
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--music" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">5</span>
+                <span class="whats-included-step-text">Licensed music (Musicbed, Soundstripe, Artlist)</span>
+              </li>
+            </ol>
+            <ol class="whats-included-timeline" start="6">
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--check" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">6</span>
+                <span class="whats-included-step-text">Two-stage quality control</span>
+              </li>
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--export" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">7</span>
+                <span class="whats-included-step-text">4K export (Google Drive / Dropbox)</span>
+              </li>
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--revisions" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">8</span>
+                <span class="whats-included-step-text">3 rounds of revisions included</span>
+              </li>
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--file" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">9</span>
+                <span class="whats-included-step-text">Premiere Pro project file included</span>
+              </li>
+              <li class="whats-included-step">
+                <span class="whats-included-step-icon whats-included-step-icon--support" aria-hidden="true"></span>
+                <span class="whats-included-step-num" aria-hidden="true">10</span>
+                <span class="whats-included-step-text">Free support after delivery</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section pricing-section how-it-works" id="how-it-works">
+        <div class="container container--wide">
+          <h2 class="section-title">How it works</h2>
+          <p class="section-sub">From footage to finished film</p>
+          <div class="how-steps how-steps--four how-steps--timeline">
+            <div class="how-step">
+              <span class="how-step-num" aria-hidden="true">1</span>
+              <h3 class="how-step-title">Contact us</h3>
+              <p class="how-step-text">Tell us about your project. We’ll reply with a quote within 24 hours.</p>
+            </div>
+            <div class="how-step">
+              <span class="how-step-num" aria-hidden="true">2</span>
+              <h3 class="how-step-title">Send your footage</h3>
+              <p class="how-step-text">Upload via Google Drive, Dropbox, or WeTransfer. Share any notes and deadlines.</p>
+            </div>
+            <div class="how-step">
+              <span class="how-step-num" aria-hidden="true">3</span>
+              <h3 class="how-step-title">Editing process</h3>
+              <p class="how-step-text">We cut, grade, and mix. You’ll get a draft for review.</p>
+            </div>
+            <div class="how-step">
+              <span class="how-step-num" aria-hidden="true">4</span>
+              <h3 class="how-step-title">Delivery & revisions</h3>
+              <p class="how-step-text">Final delivery in your format. Revisions included so the edit matches your vision.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
-    <footer class="footer">
+    <footer class="footer footer--pricing">
       <div class="container container--wide">
-        <div class="footer-contact">
-          <p class="contact-email">
-            <strong><span class="contact-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> Email</strong><br>
+        <div class="footer-inner">
+          <a href="index.html" class="footer-logo">
+            <img src="images/logo.svg" alt="Soulcut Video" width="120" height="40">
+          </a>
+          <div class="footer-contact">
             <a href="mailto:hello@soulcut.video">hello@soulcut.video</a>
-          </p>
-          <p class="contact-links">
-            <strong><span class="contact-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span> Quick links</strong><br>
             <a href="https://www.instagram.com/soulcut.video/" target="_blank" rel="noopener">Instagram</a>
-          </p>
+          </div>
         </div>
         <p class="footer-copy">&copy; <span id="year"></span> Soulcut Video. Wedding film editing.</p>
       </div>
@@ -75,5 +292,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="pricing.js"></script>
 </body>
 </html>

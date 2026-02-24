@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Soulcut Video</title>
+  <meta name="description" content="Tips and insights on wedding film editing, storytelling, and post-production.">
+  <link rel="icon" href="images/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body class="page-blog">
+  <div class="page-wrap">
+    <header class="portfolio-page-header">
+      <nav class="nav nav--portfolio">
+        <a href="index.html" class="nav-logo">
+          <img class="nav-logo-gold" src="images/logo_gold.svg" alt="" aria-hidden="true">
+          <img class="nav-logo-white" src="images/logo.svg" alt="Soulcut Video">
+        </a>
+        <button class="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog.html" class="nav-link--current">Blog</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li class="nav-close-item">
+            <button type="button" class="nav-close-btn" aria-label="Close menu">&times;</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="blog-main">
+      <div class="container container--wide">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">→</span>
+          <span>Blog</span>
+        </nav>
+        <h1 class="blog-page-title">Blog</h1>
+        <p class="blog-page-lead">Tips and insights on wedding film editing and storytelling.</p>
+
+        <div class="blog-grid" id="blogGrid">
+          <article class="blog-card">
+            <a href="blog/wedding-film-tips.html" class="blog-card-link">
+              <div class="blog-card-image-wrap">
+                <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="blog-card-image" loading="lazy">
+              </div>
+              <div class="blog-card-content">
+                <h2 class="blog-card-title">5 Tips for Better Wedding Film Edits</h2>
+                <p class="blog-card-preview">How to keep pacing tight, choose the right music, and deliver a film your clients will love.</p>
+                <time class="blog-card-date" datetime="2025-02-15">Feb 15, 2025</time>
+              </div>
+            </a>
+          </article>
+
+          <article class="blog-card">
+            <a href="blog/color-grading-wedding.html" class="blog-card-link">
+              <div class="blog-card-image-wrap">
+                <img src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="blog-card-image" loading="lazy">
+              </div>
+              <div class="blog-card-content">
+                <h2 class="blog-card-title">Color Grading for Wedding Films</h2>
+                <p class="blog-card-preview">Rec.709, cinematic LUTs, and keeping skin tones natural across different lighting.</p>
+                <time class="blog-card-date" datetime="2025-02-01">Feb 1, 2025</time>
+              </div>
+            </a>
+          </article>
+
+          <article class="blog-card">
+            <a href="blog/highlight-vs-full-film.html" class="blog-card-link">
+              <div class="blog-card-image-wrap">
+                <img src="https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" class="blog-card-image" loading="lazy">
+              </div>
+              <div class="blog-card-content">
+                <h2 class="blog-card-title">Highlight vs Full Film: What to Deliver</h2>
+                <p class="blog-card-preview">When to offer a short highlight, a full film, or both — and how to structure your packages.</p>
+                <time class="blog-card-date" datetime="2025-01-20">Jan 20, 2025</time>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container container--wide">
+        <div class="footer-inner">
+          <a href="index.html" class="footer-logo">
+            <img src="images/logo.svg" alt="Soulcut Video" width="120" height="40">
+          </a>
+          <div class="footer-contact">
+            <a href="mailto:hello@soulcut.video">hello@soulcut.video</a>
+            <a href="https://www.instagram.com/soulcut.video/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <p class="footer-copy">&copy; <span id="year"></span> Soulcut Video. Wedding film editing.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
