@@ -1953,6 +1953,16 @@ a:hover {
   line-height: 1.65;
 }
 
+.faq-answer .faq-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.faq-answer .faq-link:hover {
+  text-decoration: underline;
+}
+
 /* ----- Testimonial / Featured (carousel) ----- */
 .testimonial {
   background: var(--bg-elevated);
