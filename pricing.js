@@ -31,14 +31,19 @@
     }
   }
 
-  tabs.forEach(function (btn) {
-    btn.addEventListener('click', function () {
+  // Use delegation on the tablist so one listener handles all tabs and we can stopPropagation
+  var tabList = document.querySelector('.pricing-tabs');
+  if (tabList) {
+    tabList.addEventListener('click', function (e) {
+      var btn = e.target.closest('.pricing-tab');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
       setActiveTab(btn);
     });
-  });
+  }
 
   // Keyboard: arrow keys and Enter/Space (role=tab)
-  var tabList = document.querySelector('.pricing-tabs');
   if (tabList) {
     tabList.addEventListener('keydown', function (e) {
       var idx = Array.prototype.indexOf.call(tabs, document.activeElement);
