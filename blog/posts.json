@@ -1,23 +1,10 @@
 [
   {
-    "slug": "wedding-film-tips",
-    "title": "5 Tips for Better Wedding Film Edits",
-    "preview": "How to keep pacing tight, choose the right music, and deliver a film your clients will love.",
-    "date": "2025-02-15",
-    "cover": "https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    "slug": "color-grading-wedding",
-    "title": "Color Grading for Wedding Films",
-    "preview": "Rec.709, cinematic LUTs, and keeping skin tones natural across different lighting.",
-    "date": "2025-02-01",
-    "cover": "https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800"
-  },
-  {
-    "slug": "highlight-vs-full-film",
-    "title": "Highlight vs Full Film: What to Deliver",
-    "preview": "When to offer a short highlight, a full film, or both — and how to structure your packages.",
-    "date": "2025-01-20",
-    "cover": "https://images.pexels.com/photos/265705/pexels-photo-265705.jpeg?auto=compress&cs=tinysrgb&w=800"
+    "slug": "organize-video-editing-projects",
+    "title": "Mastering Project File: A Guide for Wedding Videographers and Editors",
+    "preview": "Folder structure, file management, and how to open and relink projects so collaboration stays smooth.",
+    "date": "2025-03-01",
+    "cover": "https://images.pexels.com/photos/267415/pexels-photo-267415.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "hidden": true
   }
 ]

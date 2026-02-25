@@ -2603,6 +2603,13 @@ a:hover {
   gap: 32px;
 }
 
+.blog-empty {
+  margin: 2em 0 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
 .blog-card {
   margin: 0;
 }
@@ -2766,6 +2773,43 @@ a:hover {
 
 .blog-post-body a {
   color: var(--accent);
+}
+
+.blog-post-body ul,
+.blog-post-body ol {
+  margin: 0 0 1.25em;
+  padding-left: 1.5em;
+  line-height: 1.7;
+}
+
+.blog-post-body li {
+  margin-bottom: 0.4em;
+}
+
+.blog-post-body h3 {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.25em 0 0.5em;
+  color: var(--text);
+}
+
+.blog-post-figure {
+  margin: 1.75em 0;
+}
+
+.blog-post-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.blog-post-figure figcaption {
+  margin-top: 0.5em;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .blog-post-cta {
